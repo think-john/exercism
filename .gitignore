@@ -1,3 +1,4 @@
 bin/
 shell/
 LICENSE
+node_modules/
