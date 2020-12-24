@@ -1,3 +1,1 @@
-export function twoFer (name) {
-  return `One for ${name || 'you'}, one for me.`;
-}
+export const twoFer = (who) => `One for ${ who || 'you' }, one for me.`
