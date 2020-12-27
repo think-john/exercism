@@ -4,19 +4,40 @@
 //
 
 export class Triangle {
-  constructor() {
-    throw new Error('Remove this statement and implement this function');
+  constructor(side1, side2, side3) {
+    this.side1 = side1;
+    this.side2 = side2;
+    this.side3 = side3;
+  }
+  isTriangle() {
+    return ( 
+        // all three sides can't be zero
+        this.side1 + this.side2 + this.side3 > 0 
+      ) && (
+        // the sum of any two sides must be >= than the remaining side
+        this.side1 + this.side2 >= this.side3 &&
+        this.side2 + this.side3 >= this.side1 &&
+        this.side1 + this.side3 >= this.side2
+    )
   }
 
   isEquilateral() {
-    throw new Error('Remove this statement and implement this function');
+    return ( this.isTriangle() ) && (
+      new Set([this.side1, this.side2, this.side3]).size === 1 // all sides are equal
+    );
   }
 
   isIsosceles() {
-    throw new Error('Remove this statement and implement this function');
+    return ( this.isTriangle() ) && (
+      new Set([this.side1, this.side2, this.side3]).size < 3 // at least two sides are equal
+    )
   }
 
   isScalene() {
-    throw new Error('Remove this statement and implement this function');
+    return ( this.isTriangle() ) && (
+      new Set([this.side1, this.side2, this.side3]).size === 3 // no sides are equal
+    );
   }
+
+
 }
