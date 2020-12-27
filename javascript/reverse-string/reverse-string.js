@@ -1,7 +1,1 @@
-'use strict';
-
-var reverseString = function(input) {
-  return input.toString().split('').reverse().join('');
-}
-
-module.exports = reverseString;
+export const reverseString = (input) => input.split('').reverse().join('') 
