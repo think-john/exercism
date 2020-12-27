@@ -1,14 +1,7 @@
-//
-// This is only a SKELETON file for the "Leap" exercise. It's been provided as a
-// convenience to get you started writing code faster.
-//
-
-var Year = function(input) {
-  this.year = input;
-};
-
-Year.prototype.isLeap = function() {
-  return (this.year % 400 == 0 || ((this.year % 4 == 0) && (this.year % 100 != 0)));
-};
-
-module.exports = Year;
+export const isLeap = (year) => {
+  return ( 
+    year % 100 === 0 ? // years divisible by 100 are only a leap year...
+    year % 400 === 0 : // ...if they are also divisible by 400.
+    year %   4 === 0   // otherwise, years are only leap if divisible by 4.
+    );
+}
