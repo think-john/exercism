@@ -1,18 +1,12 @@
-export const steps = (input) => {
-  let currentNum = input;
-  let count = 0;
+export const steps = (n, count = 0) => {
 
-  // Reject zero and negative values
-  if (currentNum <= 0) {
-    throw ('Only positive numbers are allowed');
-  }
+  if (n <= 0) throw 'Only positive numbers are allowed'
 
-  // Perform operations until currentNum is 1
-  while (currentNum > 1) {
-    if (currentNum % 2 === 0 ) { // currentNum is even
-      currentNum = currentNum / 2;
-    } else { // currentNum is odd
-      currentNum = ( 3 * currentNum ) + 1;
+  while (n > 1) {
+    if (n % 2 === 0 ) { 
+      n = n / 2;
+    } else {
+      n = ( 3 * n ) + 1;
     }
     count++;
   }
