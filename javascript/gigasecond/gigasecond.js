@@ -1,6 +1,1 @@
-export const gigasecond = (date) => {
-  const birthDate = date;
-  const anniversaryDate = new Date(birthDate.getTime() + 1e12);
-
-  return anniversaryDate;
-};
+export const gigasecond = ( date ) => new Date( date.getTime() + 1e12 );
