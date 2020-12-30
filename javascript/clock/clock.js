@@ -1,17 +1,14 @@
-export const at = (hour = 0, minute = 0) => {
-
-  let clockTime = new Date()
-  clockTime.setHours(hour, minute)
-
-  let h = clockTime.getHours().toString();
-  let m = clockTime.getMinutes().toString();
-
-  return {
-    h: () => h,
-    m: () => m,
-    toString: () => `${h.padStart(2,'0')}:${m.padStart(2,'0')}`,
-    equals: (clock) => ((h == clock.h()) && (m == clock.m())),
-    minus: minutes => at(h,+m - +minutes),
-    plus: minutes => at(h,+m + +minutes),
+export class Clock {
+  constructor(hour, minutes = 0) {    
+    this.clockTime = new Date()
+    this.clockTime.setHours(hour, minutes)
   }
+
+  plus  = ( minutesToAdd ) => new Clock(this.clockTime.getHours(), this.clockTime.getMinutes() + minutesToAdd);
+  
+  minus = ( minutesToSubtract ) => new Clock(this.clockTime.getHours(), this.clockTime.getMinutes() - minutesToSubtract);
+  
+  equals = ( Clock ) => this.toString() === Clock.toString();
+
+  toString = () => this.clockTime.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
 }
